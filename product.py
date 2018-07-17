@@ -1,4 +1,14 @@
+
+import os #operating system
 product = []
+if os.path.isfile('product.csv'):
+	with open('product.csv', 'r', encoding = 'utf-8') as f:
+		for line in f:
+			if '商品,價格' == line:
+				continue;
+			name, price = line.strip().split(',');
+			product.append([name, price]);
+	print(product);
 while True:
 	name = input('insert the product name:');
 	if 'q' == name:
